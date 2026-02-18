@@ -1,15 +1,14 @@
-import { View, Text, useColorScheme, StyleSheet } from "react-native"
+import {Text, StyleSheet } from "react-native"
 
-export default function ThemedText({title= false , children, style }){
-
-    //const theme = useColorScheme()
-    const theme = "light"
+export default function ThemedText({title= false , children, style, ...props }){
 
     const type = title ? 'title' : 'text'
 
     return (
      <>
-         <Text style={[styles[type][theme], style]}>
+         <Text style={[styles[type], style]}
+               {...props}
+         >
              {children}
          </Text>
      </>
@@ -19,17 +18,14 @@ export default function ThemedText({title= false , children, style }){
 
 const styles = StyleSheet.create({
     title: {
-        light: {
-            color: '#0A2540',
-            fontSize: 35,
-            fontWeight: 'bold'
-        }
-    }, text: {
-        light: {
-            color: '#0A2540',
-            fontSize: 20,
-            fontWeight: 'bold'
+        color: '#0A2540',
+        fontSize: 35,
+        fontWeight: 'bold'
+    },
+    text: {
+        color: '#0A2540',
+        fontSize: 20,
+        fontWeight: 'bold'
 
-        },
-    }
+    },
 })

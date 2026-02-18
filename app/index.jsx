@@ -1,30 +1,39 @@
-import {StyleSheet, TextInput, View} from "react-native";
+import {Pressable, StyleSheet, View} from "react-native";
 
-import Spacer from "../components/Spacer"
-import ThemedText from  "../components/ThemedText"
-import ThemedButton from "../components/ThemedButton";
+import Counter from "../components/Counter";
+import Logo from "../components/Logo";
 
-import Drip from "../assets/images/Drip.png"
+import szklanka_wody_200ml from "../assets/images/Szklanka_wody.png"
 import {Image} from "expo-image";
-
+import {useState} from "react";
+import {Link} from "expo-router";
 
 
 export default function Index() {
 
-    const dailyRequirement = "2500"
+    const [water, setWater] = useState(0)
 
-    const water = "0000"
+    let limit = 2500
+
+    function drink(x){
+        setWater(water + x)
+    }
+
 
     return (
           <View style={styles.container}>
+              <Link href={"./(DailyHistory)/history"}></Link><Counter limit={limit} drunkWater={water} />
 
-              <Image source={Drip} style={{width: 200, height: 200}}/>
+              <Logo/>
 
-              <Spacer height={100}/>
-              <ThemedButton style={{borderRadius:200}}>Dodaj</ThemedButton>
+              <View style={styles.drinks}>
+                  <Pressable
+                      onPressIn={()=>{drink(200)}}
+                  >
+                      <Image style={styles.szklanka_wody} source={szklanka_wody_200ml}/>
+                  </Pressable>
 
-              <Spacer/>
-
+              </View>
           </View>
     )
 }
@@ -34,17 +43,17 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: "#DCF2F5"
+        backgroundColor: "#b7edf6"
     },
-    input: {
-        fontSize: 20,
-        color: '#004D40',
-        fontWeight: 'bold',
-        textAlign: "center",
-        borderRadius: 20,
-        borderColor: "#1CB0F6",
-        borderWidth: 2,
-        width: 300,
-        height: 50,
+    szklanka_wody: {
+        width: 200,
+        height: 150,
     },
+    drinks: {
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 10,
+        width: "100%",
+        height: "30%",
+    }
 })
