@@ -2,6 +2,8 @@ import {Pressable, StyleSheet, View} from "react-native";
 
 import Counter from "../components/Counter";
 import Logo from "../components/Logo";
+import Drink from "../components/Drink";
+
 
 import szklanka_wody_200ml from "../assets/images/Szklanka_wody.png"
 import {Image} from "expo-image";
@@ -11,29 +13,37 @@ import {Link} from "expo-router";
 
 export default function Index() {
 
-    const [water, setWater] = useState(0)
+    const [water, setWater] = useState([])
 
-    let limit = 2500
+    const limit = 2500
 
-    function drink(x){
-        setWater(water + x)
+    console.log(water)
+
+
+    const handleCreateWater = (type, volume) => {
+
+        const drink = {
+            type,
+            volume,
+            date: new Date()
+        }
+
+        setWater((prev) => [...prev, drink])
+
     }
+
+
 
 
     return (
           <View style={styles.container}>
-              <Link href={"./(DailyHistory)/history"}></Link><Counter limit={limit} drunkWater={water} />
+
+              <Link href={"./(DailyHistory)/history"}>
+                  <Counter limit={limit} />
+              </Link>
 
               <Logo/>
-
-              <View style={styles.drinks}>
-                  <Pressable
-                      onPressIn={()=>{drink(200)}}
-                  >
-                      <Image style={styles.szklanka_wody} source={szklanka_wody_200ml}/>
-                  </Pressable>
-
-              </View>
+              <Drink onWaterCreate={handleCreateWater}/>
           </View>
     )
 }
