@@ -1,18 +1,23 @@
-import {TouchableOpacity, View, StyleSheet} from "react-native";
+import {View, StyleSheet, TouchableOpacity} from "react-native";
 import {Image} from "expo-image";
-import szklanka_wody_200ml from "../assets/images/Szklanka_wody.png";
+import szklanka_wody_200ml from "../../assets/images/Szklanka_wody.png";
 
 
-export default function Drink({onWaterCreate, ...props }) {
+function Drink({onWaterCreate, ...props }) {
 
     return  <View style={styles.drinks}>
-        <TouchableOpacity onPress={()=> {
+        <TouchableOpacity  onPress={()=> {
             onWaterCreate("woda", 200)
-        }}>
+            console.log("Pressed")
+        }}
+            activeOpacity={0.3}
+        >
             <Image style={styles.szklanka_wody} source={szklanka_wody_200ml}/>
         </TouchableOpacity>
     </View>
 }
+
+export default Drink
 
 
 const styles = StyleSheet.create({
