@@ -1,12 +1,11 @@
-import { StyleSheet, View } from "react-native";
-
-
+import { View } from "react-native";
 import { Counter } from "../../components/Counter";
 import { Logo } from "../../components/Logo";
 import { Drink } from "../../components/Drink";
 import { useState } from "react";
 import { Spacer } from "../../components/Spacer";
 import {SafeAreaView} from "react-native-safe-area-context";
+import styles from "./MainPage.style";
 
 
 interface waterParameters {
@@ -49,15 +48,3 @@ export default function Index(){
         </SafeAreaView>
     )
 }
-
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        backgroundColor: "#b7edf6"
-    }, safeArea: {
-        flex: 1,
-        backgroundColor: "#b7edf6"
-    },
-})
