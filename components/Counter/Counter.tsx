@@ -1,10 +1,21 @@
 import {Text, View} from "react-native";
 import { styles } from "./Counter.style";
 
-function Counter({limit, water}) {
+interface WaterProps {
+    limit: number,
+    water: waterParameters[]
+}
+
+interface waterParameters {
+    type: string,
+    volume: number,
+    date: Date,
+}
+
+function Counter({limit, water}: WaterProps) {
 
     function calculateWater() {
-        return water.reduce((acc, element) => acc + element.volume, 0)
+        return water.reduce((acc: number, element: waterParameters ) => acc + element.volume, 0)
     }
 
     const drunkWater = calculateWater()
