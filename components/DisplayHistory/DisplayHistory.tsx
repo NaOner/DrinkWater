@@ -2,10 +2,22 @@ import { View} from "react-native"
 import styles from "./DisplayHistory.style"
 import { DisplayElement }  from "@/components/DisplayHistory/DisplayElement"
 
-function DisplayHistory() {
+interface waterParameters {
+    type: string,
+    volume: number,
+    date: Date,
+}
+
+interface DisplayHistoryProps {
+    water: waterParameters[]
+}
+
+function DisplayHistory({ water }: DisplayHistoryProps) {
     return (
         <View style={styles.container}>
-            <DisplayElement/>
+            {water.map((item, index) => (
+                <DisplayElement key={index} item={item}/>
+            ))}
         </View>
     )
 }

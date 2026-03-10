@@ -6,10 +6,12 @@ export const styles = StyleSheet.create({
         height: 150,
     },
     drinks: {
+        flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        padding: 10,
         width: "100%",
         height: "30%",
+        borderColor: "black",
+        borderWidth: 2,
     }
 })

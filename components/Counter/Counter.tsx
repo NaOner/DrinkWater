@@ -27,7 +27,6 @@ function Counter({limit, water}: WaterProps) {
                 <Text style={styles.drunkWater}>{drunkWater}</Text>
                 <Text style={styles.limit}>/{limit}</Text>
             </Text>
-
         </View>
     )
 }
