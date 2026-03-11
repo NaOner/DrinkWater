@@ -29,16 +29,12 @@ const styles = StyleSheet.create({
     drinkSection: {
         width: "100%",
         height: 200,
-        borderWidth: 1,
-        borderColor: 'black',
         justifyContent: "center",
         alignItems: "center",
     },
     undoButtonSection: {
         width: "100%",
         height: "20%",
-        borderWidth: 1,
-        borderColor: 'black',
         justifyContent: "center",
         alignItems: "center"
     }

@@ -1,4 +1,4 @@
-import { View} from "react-native"
+import { ScrollView, View} from "react-native"
 import styles from "./DisplayHistory.style"
 import { DisplayElement }  from "@/components/DisplayHistory/DisplayElement"
 
@@ -15,9 +15,12 @@ interface DisplayHistoryProps {
 function DisplayHistory({ water }: DisplayHistoryProps) {
     return (
         <View style={styles.container}>
-            {water.map((item, index) => (
-                <DisplayElement key={index} item={item}/>
-            ))}
+            <ScrollView style={styles.scrollView}
+                        indicatorStyle={"white"}>
+                {water.map((item, index) => (
+                    <DisplayElement key={index} item={item}/>
+                ))}
+            </ScrollView>
         </View>
     )
 }

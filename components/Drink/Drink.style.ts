@@ -9,7 +9,10 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         padding: 10,
-        width: "100%",
-        height: "30%",
+        width: 250,
+        height: 150,
+        borderRadius: 20,
+        borderWidth: 1,
+        borderColor: 'white',
     }
 })
