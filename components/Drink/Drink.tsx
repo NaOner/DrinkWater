@@ -1,5 +1,4 @@
-import { View, TouchableOpacity } from "react-native";
-import { Image } from "expo-image";
+import { View, TouchableOpacity, Text } from "react-native";
 import { styles } from "./Drink.style";
 
 interface WaterProps {
@@ -8,15 +7,17 @@ interface WaterProps {
 
 function Drink({onWaterCreate , ...props}: WaterProps) {
 
-    return  <View style={styles.drinks}>
-        <TouchableOpacity  onPress={()=> {
-            onWaterCreate("woda", 200)
-        }}
-                           activeOpacity={0.6}
-        >
-            <Image style={styles.szklanka_wody} source={require("../../assets/images/Szklanka_wody.png")}/>
-        </TouchableOpacity>
-    </View>
+    return  (
+        <View style={styles.background}>
+            <TouchableOpacity  onPress={()=> {
+                onWaterCreate("woda", 200)
+            }}
+                               activeOpacity={0.6}
+            >
+                <Text>Tu będzie zdjęcie szklanki wody</Text>
+            </TouchableOpacity>
+        </View>
+    )
 }
 
 export default Drink

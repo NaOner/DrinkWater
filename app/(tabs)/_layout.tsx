@@ -6,10 +6,12 @@ export default function TabLayout() {
         <Tabs screenOptions={{
             headerShown: false,
             tabBarStyle: {
-                backgroundColor: "#eae9e9",
-                borderTopWidth: 2,
-                borderTopColor: "#000000"
-            }}
+                backgroundColor: "white",
+                borderRadius: 200,
+            },
+            tabBarActiveTintColor: "black",
+            tabBarInactiveTintColor: "grey",
+        }
         }>
             <Tabs.Screen name="MainPage" options={{title: "HOME"}}/>
             <Tabs.Screen name="DailyReport" options={{title: "DAILY REPORT"}}/>

@@ -1,60 +1,46 @@
 import { StyleSheet } from "react-native";
 
-const BACKGROUND_COLOR = '#dbe6f3'; // Ten sam kolor co tło ekranu aplikacji!
+// Ten kolor to dół Twojego gradientu z poprzedniego kroku
+const BUTTON_BG = 'white';
 
 const styles = StyleSheet.create({
-    pressableArea: {
-        // Zapobiega ucinaniu cieni
-        padding: 10,
-    },
+    // 1. Zewnętrzny kontener: rzuca ciemny cień w prawy dół
     darkShadow: {
-        backgroundColor: BACKGROUND_COLOR,
+        backgroundColor: BUTTON_BG,
         borderRadius: 50,
-        // Cień dla iOS
-        shadowColor: '#c1ccd8', // Ciemniejszy odcień tła
-        shadowOffset: { width: 6, height: 6 },
+        shadowColor: '#b8ceda', // Ciemniejszy odcień tła
+        shadowOffset: { width: 5, height: 5 },
         shadowOpacity: 1,
-        shadowRadius: 10,
-        // Cień dla Androida (niestety mniej precyzyjny przy neomorfizmie)
-        elevation: 8,
+        shadowRadius: 8,
+        elevation: 6, // Prosty cień dla Androida
     },
+
+    // 2. Wewnętrzny kontener: rzuca jasny cień w lewą górę
     lightShadow: {
-        backgroundColor: BACKGROUND_COLOR,
+        backgroundColor: BUTTON_BG,
         borderRadius: 50,
-        // Cień dla iOS
-        shadowColor: '#ffffff', // Biały / bardzo jasny odcień tła
-        shadowOffset: { width: -6, height: -6 },
-        shadowOpacity: 1,
-        shadowRadius: 10,
+        shadowColor: '#ffffff', // Czysta biel
+        shadowOffset: { width: -5, height: -5 },
+        shadowOpacity: 0.5,
+        shadowRadius: 8,
     },
+
+    // 3. Właściwy kształt i zawartość przycisku
     buttonContent: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: BACKGROUND_COLOR,
+        backgroundColor: BUTTON_BG,
         borderRadius: 50,
         paddingVertical: 14,
-        paddingHorizontal: 32,
-        gap: 8, // Działa w nowszych wersjach React Native
+        paddingHorizontal: 36,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
+
     text: {
-        fontFamily: 'System', // Zmień na swój font
         fontSize: 16,
-        fontWeight: '700',
-        color: '#2b4a6f',
+        fontWeight: 'bold',
+        color: 'black',
         textTransform: 'uppercase',
-        letterSpacing: 0.5,
-        marginLeft: 8, // Fallback dla starszych RN bez wsparcia 'gap'
-    },
-    // Style aktywowane podczas dotyku (wciśnięcia)
-    shadowHidden: {
-        shadowOpacity: 0,
-        elevation: 0,
-    },
-    buttonPressed: {
-        // Delikatne przyciemnienie i przesunięcie, symulujące wciśnięcie do środka
-        backgroundColor: '#d2deec',
-        transform: [{ scale: 0.98 }],
+        letterSpacing: 1,
     }
 });
 

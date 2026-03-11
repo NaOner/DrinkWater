@@ -1,17 +1,15 @@
 import {StyleSheet} from "react-native"
 
 export const styles = StyleSheet.create({
-    szklanka_wody: {
+    image: {
         width: 200,
         height: 150,
     },
-    drinks: {
-        flex: 1,
+    background: {
         justifyContent: "center",
         alignItems: "center",
+        padding: 10,
         width: "100%",
         height: "30%",
-        borderColor: "black",
-        borderWidth: 2,
     }
 })

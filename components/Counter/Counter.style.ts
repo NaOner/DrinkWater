@@ -1,25 +1,30 @@
 import {StyleSheet} from "react-native";
 
 export const styles = StyleSheet.create({
-    container: {
-        margin: 10,
+    counter: {
         width: "90%",
         height: 50,
-        backgroundColor: "#eae9e9",
+        backgroundColor: "white",
         alignItems: "center",
         justifyContent: "center",
-        borderColor: "#0A2540",
-        borderRadius: 10,
-        borderWidth: 2,
+        borderColor: "black",
+        borderRadius: 20,
+        borderWidth: 1,
+        marginTop: 10,
     },
-    drunkWater: {
-        fontSize: 20,
+    counted: {
+        fontSize: 25,
         fontWeight: 'bold',
-        color: '#0A2540',
+        color: 'white',
     },
     limit: {
-        fontSize: 15,
+        fontSize: 20,
         fontWeight: 'bold',
-        color: '#0A2540',
+        color: '#e8e7e7',
+    },
+    lightShadow: {shadowColor: '#ffffff', // Czysta biel
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.8,
+        shadowRadius: 10,
     },
 })

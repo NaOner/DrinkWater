@@ -1,33 +1,35 @@
 import {Text, View} from "react-native";
 import { styles } from "./Counter.style";
 
-interface WaterProps {
+interface props {
     limit: number,
-    water: waterParameters[]
+    array: parameters[]
 }
 
-interface waterParameters {
+interface parameters {
     type: string,
     volume: number,
     date: Date,
 }
 
-function Counter({limit, water}: WaterProps) {
+function Counter({limit, array}: props) {
 
     function calculateWater() {
-        return water.reduce((acc: number, element: waterParameters ) => acc + element.volume, 0)
+        return array.reduce((acc: number, element: parameters ) => acc + element.volume, 0)
     }
 
-    const drunkWater = calculateWater()
+    const counted = calculateWater()
 
 
     return (
-        <View style={styles.container}>
-            <Text>
-                <Text style={styles.drunkWater}>{drunkWater}</Text>
+        <>
+            <Text style={styles.lightShadow}>
+                <Text style={styles.counted}>{counted}</Text>
                 <Text style={styles.limit}>/{limit}</Text>
             </Text>
-        </View>
+
+            <View style={styles.counter}></View>
+        </>
     )
 }
 
