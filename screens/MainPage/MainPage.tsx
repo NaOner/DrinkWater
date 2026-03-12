@@ -53,15 +53,14 @@ export default function Index(){
     }
 
     return (
-        <LinearGradient colors={['#034f91', '#b5c2cd']} start={{ x: 0, y: 1 }} end={{ x: 0, y: -1 }} style={styles.background}>
+        <LinearGradient colors={['#034f91', '#439be8']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={styles.background}>
 
             <SafeAreaView>
 
                 <View style={styles.logoSection}>
-                    <Text style={styles.logoText}>
-                        DAILY LIMIT
-                    </Text>
                     <Logo/>
+                    <Text style={styles.logoText}>
+                    </Text>
                 </View>
 
                 <View style={styles.counterSection}>

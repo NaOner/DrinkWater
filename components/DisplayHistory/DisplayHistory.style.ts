@@ -3,13 +3,13 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
-        flex: 0.6,
-        backgroundColor: "#eae9e9",
+        flex: 0.9,
+        backgroundColor: "#a8a8a8",
         width: "80%",
         height: "80%",
         borderRadius: 20,
-        borderWidth: 2,
-        borderColor: "#0A2540",
+        borderWidth: 3,
+        borderColor: "black",
 
     },
     scrollView: {

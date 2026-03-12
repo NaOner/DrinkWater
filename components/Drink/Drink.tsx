@@ -1,4 +1,4 @@
-import { View, TouchableOpacity } from "react-native";
+import { Image,  View, TouchableOpacity } from "react-native";
 import { styles } from "./Drink.style";
 import {LinearGradient} from "expo-linear-gradient";
 
@@ -14,9 +14,9 @@ function Drink({onWaterCreate , ...props}: WaterProps) {
             }}
                                activeOpacity={0.7}
             >
-                <LinearGradient colors={['#022549', 'rgba(7,86,186,0.83)']} start={{ x: 0, y: 1 }} end={{ x: 0, y: -1 }} style={styles.background}>
+                <LinearGradient colors={['rgba(2,56,124,0.83)', 'rgb(63,133,250)']} start={{ x: 0, y: 1 }} end={{ x: 0, y: -1 }} style={styles.background}>
                     <View style={styles.background}>
-                        <>Tu będzie zdjęcie szklanki wody</>
+                        <Image source={require("../../assets/images/szklanka.png")} style={styles.image}/>
                     </View>
                 </LinearGradient>
             </TouchableOpacity>

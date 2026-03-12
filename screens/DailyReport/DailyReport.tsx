@@ -4,8 +4,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import styles from "./DailyReport.style";
 import {useFocusEffect} from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import {useState} from "react";
-import {useCallback} from "react";
+import {useState, useCallback} from "react";
+import {LinearGradient} from "expo-linear-gradient";
 
 interface waterParameters {
     type: string,
@@ -38,12 +38,19 @@ function DailyReport() {
     console.log(water)
 
     return (
-        <SafeAreaView style={styles.safeArea}>
-            <View style={styles.container}>
-                <Text style={styles.title}>Daily drinks raport</Text>
-                <DisplayHistory water={water}/>
-            </View>
-        </SafeAreaView>
+        <LinearGradient colors={['#034f91', '#439be8']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={styles.background}>
+            <SafeAreaView style={styles.safeArea}>
+
+                <View style={styles.titleSection}>
+                    <Text style={styles.title}>Daily drinks raport</Text>
+                </View>
+
+                <View style={styles.displaySection}>
+                    <DisplayHistory water={water}/>
+                </View>
+
+            </SafeAreaView>
+        </LinearGradient>
     )
 }
 

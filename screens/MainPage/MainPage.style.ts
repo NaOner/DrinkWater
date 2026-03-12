@@ -11,16 +11,12 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     logoSection: {
-        borderWidth: 1,
-        borderColor: 'black',
         width: "100%",
         height: '30%',
         justifyContent: "center",
         alignItems: "center",
     },
     counterSection: {
-        borderWidth: 1,
-        borderColor: 'black',
         width: "100%",
         height: "20%",
         justifyContent: "center",

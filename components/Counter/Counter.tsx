@@ -28,7 +28,9 @@ function Counter({limit, array}: props) {
                 <Text style={styles.limit}>/{limit}</Text>
             </Text>
 
-            <View style={styles.counter}></View>
+            <View style={styles.counter}>
+                <View style={{width: 30, backgroundColor: 'blue'}}></View>
+            </View>
         </>
     )
 }
