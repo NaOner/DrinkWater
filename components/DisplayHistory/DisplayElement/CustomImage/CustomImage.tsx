@@ -9,13 +9,23 @@ interface parameters {
 
 interface icons {
     type: string,
-    iconPath: number
+    icon: number
 }
 
-const iconsArr: icons[] = [{
-    type: "water",
-    iconPath: require("../../../../assets/images/szklanka.png")
-}]
+const iconsArr: icons[] = [
+    {
+        type: "Water",
+        icon: require("../../../../assets/images/szklanka.png")
+    },
+    {
+        type: "Tea",
+        icon: require("../../../../assets/images/Tea.png")
+    },
+    {
+        type: "Coffee",
+        icon: require("../../../../assets/images/Coffe.png")
+    }
+    ]
 
 function CustomImage({ item }: parameters) {
 
@@ -23,7 +33,7 @@ function CustomImage({ item }: parameters) {
 
     useEffect(() => {
         const found = iconsArr.find((el) => el.type === item)
-        setIcon(found?.iconPath)
+        setIcon(found?.icon)
     }, [item]);
 
 
