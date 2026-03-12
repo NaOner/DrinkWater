@@ -12,7 +12,7 @@ export default function TabLayout() {
             tabBarInactiveTintColor: "grey",
         }
         }>
-            <Tabs.Screen name="MainPage" options={{title: "HOME"}}/>
+            <Tabs.Screen name="index" options={{title: "HOME"}}/>
             <Tabs.Screen name="DailyReport" options={{title: "DAILY REPORT"}}/>
         </Tabs>
     )
