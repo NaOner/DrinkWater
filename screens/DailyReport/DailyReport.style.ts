@@ -19,21 +19,22 @@ const styles = StyleSheet.create({
         height: "100%",
         alignItems: 'center',
         justifyContent: "center",
-        borderColor: 'black',
-        borderWidth: 3
     },
     titleSection: {
         height: 100,
         width: "100%",
         alignItems: 'center',
         justifyContent: "center",
-        borderColor: 'black',
-        borderWidth: 3
+        shadowColor: '#ffffff',
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.8,
+        shadowRadius: 10,
     },
     title: {
         flex: 0.4,
-        fontSize: 22,
+        fontSize: 30,
         fontWeight: 'bold',
+        fontFamily: 'sans-serif',
         color: 'white',
     }
 });

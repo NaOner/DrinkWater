@@ -35,8 +35,6 @@ function DailyReport() {
         }, [])
     )
 
-    console.log(water)
-
     return (
         <LinearGradient colors={['#034f91', '#439be8']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={styles.background}>
             <SafeAreaView style={styles.safeArea}>

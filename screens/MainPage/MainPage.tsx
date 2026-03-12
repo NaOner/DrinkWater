@@ -53,7 +53,7 @@ export default function Index(){
     }
 
     return (
-        <LinearGradient colors={['#034f91', '#439be8']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={styles.background}>
+        <LinearGradient colors={['#043b6c', '#439be8']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={styles.background}>
 
             <SafeAreaView>
 

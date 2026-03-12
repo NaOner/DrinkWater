@@ -16,7 +16,8 @@ function DisplayHistory({ water }: DisplayHistoryProps) {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scrollView}
-                        indicatorStyle={"white"}>
+                        showsVerticalScrollIndicator={false}
+            >
                 {water.map((item, index) => (
                     <DisplayElement key={index} item={item}/>
                 ))}
