@@ -13,16 +13,12 @@ import { UndoButton } from "@/components/UndoButton";
 import { DrinkSelection } from "@/components/DrinkSelection";
 
 import styles from "./MainPage.style";
-
-// Types for my drinks array
-interface waterParameters {
-    type: string,
-    volume: number,
-    date: Date,
-}
+import {DrinkType, DrinkRecord} from "@/types";
+import {DrinkDTO} from "@/types/drink";
+import {DRINKS} from "@/constants/drink";
 
 export default function Index(){
-    const [water, setWater] = useState<waterParameters[]>([])
+    const [water, setWater] = useState<DrinkRecord[]>([])
 
     const limit = 2500
 
@@ -45,7 +41,7 @@ export default function Index(){
     }, [water])
 
     // function that add drink to array
-    const handleCreateWater = (type: string, volume: number) => {
+    const handleCreateWater = (type: DrinkType, volume: number) => {
         const drink = {
             type,
             volume,
@@ -61,7 +57,7 @@ export default function Index(){
 
 
 
-    const [selected, setSelected] = useState<string>("Water")
+    const [selectedDrink, setSelectedDrink] = useState<DrinkDTO>(DRINKS[0])
 
 
     return (
@@ -80,8 +76,11 @@ export default function Index(){
                 </View>
 
                 <View style={styles.drinkSection}>
-                    <DrinkSelection selected={selected} setSelected={setSelected}/>
-                    <Drink selected={selected} onWaterCreate={handleCreateWater}/>
+                    <DrinkSelection selected={selectedDrink.type} onSelect={(type) => {
+                        const drink = DRINKS.find((d) => d.type === type)
+                        if (drink) setSelectedDrink(drink)
+                    }}/>
+                    <Drink type={selectedDrink.type} volume={selectedDrink.volume} onWaterCreate={handleCreateWater}/>
                 </View>
 
                 <View style={styles.undoButtonSection}>
