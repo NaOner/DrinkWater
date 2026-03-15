@@ -1,4 +1,4 @@
-import {StyleSheet} from "react-native";
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     counter: {
@@ -11,25 +11,25 @@ export const styles = StyleSheet.create({
         borderRadius: 20,
         borderWidth: 1,
         marginTop: 10,
-        shadowColor: '#000000', // Czysta biel
+        shadowColor: "#000000", // Czysta biel
         shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 0.4,
         shadowRadius: 10,
     },
     counted: {
         fontSize: 25,
-        fontWeight: 'bold',
-        color: 'white',
+        fontWeight: "bold",
+        color: "white",
     },
     limit: {
         fontSize: 20,
-        fontWeight: 'bold',
-        color: '#e8e7e7',
+        fontWeight: "bold",
+        color: "#e8e7e7",
     },
     lightShadow: {
-        shadowColor: '#ffffff', // Czysta biel
+        shadowColor: "#ffffff", // Czysta biel
         shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 0.8,
         shadowRadius: 10,
     },
-})
+});

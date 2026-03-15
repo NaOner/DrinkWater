@@ -1,1 +1,1 @@
-export {default as DrinkSelection} from "./DrinkSelection";
+export { default as DrinkSelection } from "./DrinkSelection";

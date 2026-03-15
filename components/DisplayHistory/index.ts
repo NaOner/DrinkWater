@@ -1,1 +1,1 @@
-export { default as DisplayHistory } from './DisplayHistory';
+export { default as DisplayHistory } from "./DisplayHistory";

@@ -1,38 +1,28 @@
-import styles, { activeColor } from "./DrinkSelection.style";
-import {Text, TouchableOpacity, View} from "react-native";
+import styles from "./DrinkSelection.style";
+import { Text, TouchableOpacity, View } from "react-native";
+import { DrinkType, DRINK_TYPE_ENUM } from "@/types/drink";
 
-interface props {
-    selected: string,
-    setSelected: (selected: string) => void
+interface DrinkSelectionProps {
+    selectedType: DrinkType;
+    onTypeSelect: (type: DrinkType) => void;
 }
 
-function DrinkSelection({selected, setSelected}: props) {
+const DRINK_TYPES = Object.values(DRINK_TYPE_ENUM);
 
-
+function DrinkSelection({ selectedType, onTypeSelect }: DrinkSelectionProps) {
     return (
         <View style={styles.elementsToSelect}>
-
-            <TouchableOpacity style={[styles.element, selected === "Tea" && styles.elementActive]} onPress={() => setSelected("Tea")}>
-                <Text style={[styles.text, selected === "Tea" && styles.textActive]}>
-                    Tea
-                </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={[styles.element, selected === "Water" && styles.elementActive]} onPress={() => setSelected("Water")}>
-                <Text style={[styles.text, selected === "Water" && styles.textActive]}>
-                    Water
-                </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={[styles.element, selected === "Coffee" && styles.elementActive]} onPress={() => setSelected("Coffee")}>
-                <Text style={[styles.text, selected === "Coffee" && styles.textActive]}>
-                    Coffee
-                </Text>
-            </TouchableOpacity>
-
+            {DRINK_TYPES.map((type) => (
+                <TouchableOpacity
+                    key={type}
+                    style={[styles.element, selectedType === type && styles.elementActive]}
+                    onPress={() => onTypeSelect(type)}
+                >
+                    <Text style={[styles.text, selectedType === type && styles.textActive]}>{type}</Text>
+                </TouchableOpacity>
+            ))}
         </View>
-
-    )
+    );
 }
 
-export default DrinkSelection
+export default DrinkSelection;

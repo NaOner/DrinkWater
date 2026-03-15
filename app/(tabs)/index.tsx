@@ -1,3 +1,3 @@
 import { MainPage } from "@/screens/MainPage";
 
-export default MainPage
+export default MainPage;
