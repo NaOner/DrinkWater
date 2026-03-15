@@ -12,3 +12,5 @@ export const DRINKS: DrinkDTO[] = [
     { type: DRINK_TYPE_ENUM.Tea, volume: 200 },
     { type: DRINK_TYPE_ENUM.Coffee, volume: 100 },
 ];
+
+export const DAILY_DRINK_LIMIT = 2500;
