@@ -36,6 +36,16 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontFamily: 'sans-serif',
         color: 'white',
+    },
+    errorSection: {
+        paddingHorizontal: 20,
+        paddingVertical: 8,
+        alignItems: "center",
+    },
+    errorText: {
+        color: "#ff6b6b",
+        fontSize: 14,
+        textAlign: "center",
     }
 });
 

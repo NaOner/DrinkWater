@@ -9,6 +9,7 @@ interface UseDrinkRecordsReturn {
     error: string | null;
     addDrink: (type: DrinkType, volume: number) => void;
     undoLastDrink: () => void;
+    refetch: () => void;
 }
 
 function parseDrinkRecords(json: string): DrinkRecord[] {
@@ -24,19 +25,21 @@ export function useDrinkRecords(): UseDrinkRecordsReturn {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
-        const fetchDrinkRecords = async () => {
-            try {
-                const json = await AsyncStorage.getItem(STORAGE_KEYS.DRINK_RECORDS);
-                if (json) setDrinkRecords(parseDrinkRecords(json));
-            } catch (e) {
-                setError("Failed to load drink records");
-            } finally {
-                setIsLoading(false);
-            }
-        };
-        void fetchDrinkRecords();
+    const fetchDrinkRecords = useCallback(async () => {
+        try {
+            setIsLoading(true);
+            const json = await AsyncStorage.getItem(STORAGE_KEYS.DRINK_RECORDS);
+            if (json) setDrinkRecords(parseDrinkRecords(json));
+        } catch (e) {
+            setError("Failed to load drink records");
+        } finally {
+            setIsLoading(false);
+        }
     }, []);
+
+    useEffect(() => {
+        void fetchDrinkRecords();
+    }, [fetchDrinkRecords]);
 
     const saveDrinkRecords = useCallback(async (records: DrinkRecord[]) => {
         try {
@@ -64,5 +67,5 @@ export function useDrinkRecords(): UseDrinkRecordsReturn {
         void saveDrinkRecords(updated);
     }, [drinkRecords, saveDrinkRecords]);
 
-    return { drinkRecords, isLoading, error, addDrink, undoLastDrink };
+    return { drinkRecords, isLoading, error, addDrink, undoLastDrink, refetch: fetchDrinkRecords };
 }
