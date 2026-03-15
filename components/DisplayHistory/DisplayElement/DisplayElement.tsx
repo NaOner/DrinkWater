@@ -1,15 +1,10 @@
 import {View, Text } from "react-native";
 import styles from "./DisplayElement.style";
 import { CustomImage } from "./CustomImage";
-
-interface waterParameters {
-    type: string,
-    volume: number,
-    date: Date,
-}
+import { DrinkRecord } from "@/types";
 
 interface DisplayElementProps {
-    item: waterParameters
+    item: DrinkRecord
 }
 
 

@@ -1,15 +1,10 @@
 import { ScrollView, View} from "react-native"
 import styles from "./DisplayHistory.style"
 import { DisplayElement }  from "@/components/DisplayHistory/DisplayElement"
-
-interface waterParameters {
-    type: string,
-    volume: number,
-    date: Date,
-}
+import {DrinkRecord} from "@/types";
 
 interface DisplayHistoryProps {
-    water: waterParameters[]
+    water: DrinkRecord[]
 }
 
 function DisplayHistory({ water }: DisplayHistoryProps) {

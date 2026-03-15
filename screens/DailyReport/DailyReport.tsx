@@ -6,18 +6,13 @@ import {useFocusEffect} from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {useState, useCallback} from "react";
 import {LinearGradient} from "expo-linear-gradient";
-
-interface waterParameters {
-    type: string,
-    volume: number,
-    date: Date,
-}
+import { DrinkRecord } from "@/types";
 
 
 function DailyReport() {
 
 
-    const [water, setWater] = useState<waterParameters[]>([]);
+    const [water, setWater] = useState<DrinkRecord[]>([]);
 
 
     useFocusEffect(
@@ -25,7 +20,7 @@ function DailyReport() {
             void (async () => {
                 const json = await AsyncStorage.getItem("waterArr")
                 if (json) {
-                    const parsed = JSON.parse(json).map((item: waterParameters)=> ({
+                    const parsed = JSON.parse(json).map((item: DrinkRecord)=> ({
                         ...item,
                         date: new Date(item.date)
                     }) )
