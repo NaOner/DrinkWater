@@ -3,13 +3,13 @@ import {styles} from "./CustomImage.style";
 import {DrinkType} from "@/types/drink";
 import {DRINK_IMAGES} from "@/constants/drink";
 
-interface parameters {
-    item: string,
+interface CustomImageProps {
+    type: DrinkType,
 }
 
-function CustomImage({ item }: parameters) {
+function CustomImage({ type }: CustomImageProps) {
     return (
-        <Image source={DRINK_IMAGES[item as DrinkType]} style={styles.image}/>
+        <Image source={DRINK_IMAGES[type]} style={styles.image}/>
     )
 }
 

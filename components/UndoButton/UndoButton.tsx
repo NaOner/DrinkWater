@@ -1,23 +1,17 @@
 import {View, Text, TouchableOpacity, Image} from "react-native";
 import styles from "./UndoButton.style";
-
-
-interface element {
-    type: string,
-    volume: number,
-    date: Date,
-}
+import { DrinkRecord } from "@/types";
 
 interface UndoButtonProps {
-    data: element[],
-    onPress: (data: element[]) => void
+    records: DrinkRecord[],
+    onUndo: () => void
 }
 
+function UndoButton({ records, onUndo }: UndoButtonProps) {
+    if (records.length === 0) return null;
 
-
-function UndoButton({ data, onPress}: UndoButtonProps) {
     return (
-        <TouchableOpacity onPress={() => { onPress(data) }} activeOpacity={0.4} style={{}}>
+        <TouchableOpacity onPress={onUndo} activeOpacity={0.4}>
             <View style={styles.darkShadow}>
                 <View style={styles.lightShadow}>
                     <View style={styles.buttonContent}>

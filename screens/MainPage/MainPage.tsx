@@ -44,11 +44,11 @@ export default function Index(){
                 )}
 
                 <View style={styles.counterSection}>
-                    <Counter limit={DAILY_DRINK_LIMIT} array={drinkRecords} />
+                    <Counter limit={DAILY_DRINK_LIMIT} records={drinkRecords} />
                 </View>
 
                 <View style={styles.drinkSection}>
-                    <DrinkSelection selected={selectedDrink.type} onSelect={(type) => {
+                    <DrinkSelection selectedType={selectedDrink.type} onTypeSelect={(type) => {
                         const drink = DRINKS.find((d) => d.type === type)
                         if (drink) setSelectedDrink(drink)
                     }}/>
@@ -56,7 +56,7 @@ export default function Index(){
                 </View>
 
                 <View style={styles.undoButtonSection}>
-                    <UndoButton onPress={undoLastDrink} data={drinkRecords}/>
+                    <UndoButton onUndo={undoLastDrink} records={drinkRecords}/>
                 </View>
 
             </SafeAreaView>

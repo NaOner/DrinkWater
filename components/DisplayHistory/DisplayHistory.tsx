@@ -1,6 +1,6 @@
 import { ScrollView, View } from "react-native"
 import styles from "./DisplayHistory.style"
-import { DisplayElement } from "@/components/DisplayHistory/DisplayElement"
+import { DisplayElement } from "./components/DisplayElement"
 import { DrinkRecord } from "@/types";
 
 interface DisplayHistoryProps {
@@ -15,7 +15,7 @@ function DisplayHistory({ drinkRecords }: DisplayHistoryProps) {
                         showsVerticalScrollIndicator={false}
             >
                 {drinkRecords.map((item, index) => (
-                    <DisplayElement key={index} item={item}/>
+                    <DisplayElement key={index} record={item}/>
                 ))}
             </ScrollView>
         </View>
