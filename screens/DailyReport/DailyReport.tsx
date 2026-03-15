@@ -8,18 +8,22 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useDrinkRecords } from "@/hooks/useDrinkRecords";
 
 function DailyReport() {
-    const { drinkRecords, isLoading, error, refetch } = useDrinkRecords()
+    const { drinkRecords, isLoading, error, refetch } = useDrinkRecords();
 
     useFocusEffect(
         useCallback(() => {
-            void refetch()
-        }, [refetch])
-    )
+            void refetch();
+        }, [refetch]),
+    );
 
     return (
-        <LinearGradient colors={['#034f91', '#439be8']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={styles.background}>
+        <LinearGradient
+            colors={["#034f91", "#439be8"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 0, y: 1 }}
+            style={styles.background}
+        >
             <SafeAreaView style={styles.safeArea}>
-
                 <View style={styles.titleSection}>
                     <Text style={styles.title}>Daily drinks report</Text>
                 </View>
@@ -31,15 +35,15 @@ function DailyReport() {
                 )}
 
                 <View style={styles.displaySection}>
-                    {isLoading
-                        ? <ActivityIndicator size="large" color="white" />
-                        : <DisplayHistory drinkRecords={drinkRecords}/>
-                    }
+                    {isLoading ? (
+                        <ActivityIndicator size="large" color="white" />
+                    ) : (
+                        <DisplayHistory drinkRecords={drinkRecords} />
+                    )}
                 </View>
-
             </SafeAreaView>
         </LinearGradient>
-    )
+    );
 }
 
-export default DailyReport
+export default DailyReport;

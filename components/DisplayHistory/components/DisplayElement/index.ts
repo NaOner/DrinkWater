@@ -1,1 +1,1 @@
-export { default as DisplayElement } from './DisplayElement';
+export { default as DisplayElement } from "./DisplayElement";

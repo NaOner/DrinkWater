@@ -14,27 +14,35 @@ import { DrinkDTO } from "@/types/drink";
 import { DRINKS, DAILY_DRINK_LIMIT } from "@/constants/drink";
 import { useDrinkRecords } from "@/hooks/useDrinkRecords";
 
-export default function Index(){
-    const { drinkRecords, isLoading, error, addDrink, undoLastDrink } = useDrinkRecords()
-    const [selectedDrink, setSelectedDrink] = useState<DrinkDTO>(DRINKS[0])
+export default function Index() {
+    const { drinkRecords, isLoading, error, addDrink, undoLastDrink } = useDrinkRecords();
+    const [selectedDrink, setSelectedDrink] = useState<DrinkDTO>(DRINKS[0]);
 
     if (isLoading) {
         return (
-            <LinearGradient colors={['#043b6c', '#439be8']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={styles.background}>
+            <LinearGradient
+                colors={["#043b6c", "#439be8"]}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 0, y: 1 }}
+                style={styles.background}
+            >
                 <View style={styles.centered}>
                     <ActivityIndicator size="large" color="white" />
                 </View>
             </LinearGradient>
-        )
+        );
     }
 
     return (
-        <LinearGradient colors={['#043b6c', '#439be8']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={styles.background}>
-
+        <LinearGradient
+            colors={["#043b6c", "#439be8"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 0, y: 1 }}
+            style={styles.background}
+        >
             <SafeAreaView>
-
                 <View style={styles.logoSection}>
-                    <Logo/>
+                    <Logo />
                 </View>
 
                 {error && (
@@ -48,19 +56,20 @@ export default function Index(){
                 </View>
 
                 <View style={styles.drinkSection}>
-                    <DrinkSelection selectedType={selectedDrink.type} onTypeSelect={(type) => {
-                        const drink = DRINKS.find((d) => d.type === type)
-                        if (drink) setSelectedDrink(drink)
-                    }}/>
-                    <Drink type={selectedDrink.type} volume={selectedDrink.volume} onWaterCreate={addDrink}/>
+                    <DrinkSelection
+                        selectedType={selectedDrink.type}
+                        onTypeSelect={(type) => {
+                            const drink = DRINKS.find((d) => d.type === type);
+                            if (drink) setSelectedDrink(drink);
+                        }}
+                    />
+                    <Drink type={selectedDrink.type} volume={selectedDrink.volume} onWaterCreate={addDrink} />
                 </View>
 
                 <View style={styles.undoButtonSection}>
-                    <UndoButton onUndo={undoLastDrink} records={drinkRecords}/>
+                    <UndoButton onUndo={undoLastDrink} records={drinkRecords} />
                 </View>
-
             </SafeAreaView>
-
         </LinearGradient>
-    )
+    );
 }

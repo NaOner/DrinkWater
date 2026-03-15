@@ -1,4 +1,3 @@
-
 export const DRINK_TYPE_ENUM = {
     Water: "Water",
     Tea: "Tea",
@@ -12,7 +11,6 @@ export interface DrinkDTO {
     volume: number;
 }
 
-export interface DrinkRecord extends DrinkDTO{
+export interface DrinkRecord extends DrinkDTO {
     date: Date;
 }
-

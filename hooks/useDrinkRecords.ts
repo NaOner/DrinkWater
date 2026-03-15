@@ -50,16 +50,19 @@ export function useDrinkRecords(): UseDrinkRecordsReturn {
         }
     }, []);
 
-    const addDrink = useCallback((type: DrinkType, volume: number) => {
-        const drink: DrinkRecord = {
-            type,
-            volume,
-            date: new Date(),
-        };
-        const updated = [drink, ...drinkRecords];
-        setDrinkRecords(updated);
-        void saveDrinkRecords(updated);
-    }, [drinkRecords, saveDrinkRecords]);
+    const addDrink = useCallback(
+        (type: DrinkType, volume: number) => {
+            const drink: DrinkRecord = {
+                type,
+                volume,
+                date: new Date(),
+            };
+            const updated = [drink, ...drinkRecords];
+            setDrinkRecords(updated);
+            void saveDrinkRecords(updated);
+        },
+        [drinkRecords, saveDrinkRecords],
+    );
 
     const undoLastDrink = useCallback(() => {
         const updated = drinkRecords.slice(1);

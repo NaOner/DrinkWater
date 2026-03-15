@@ -17,15 +17,15 @@ const styles = StyleSheet.create({
         flex: 0.9,
         width: "100%",
         height: "100%",
-        alignItems: 'center',
+        alignItems: "center",
         justifyContent: "center",
     },
     titleSection: {
         height: 100,
         width: "100%",
-        alignItems: 'center',
+        alignItems: "center",
         justifyContent: "center",
-        shadowColor: '#ffffff',
+        shadowColor: "#ffffff",
         shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 0.8,
         shadowRadius: 10,
@@ -33,9 +33,9 @@ const styles = StyleSheet.create({
     title: {
         flex: 0.4,
         fontSize: 30,
-        fontWeight: 'bold',
-        fontFamily: 'sans-serif',
-        color: 'white',
+        fontWeight: "bold",
+        fontFamily: "sans-serif",
+        color: "white",
     },
     errorSection: {
         paddingHorizontal: 20,
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         color: "#ff6b6b",
         fontSize: 14,
         textAlign: "center",
-    }
+    },
 });
 
-export default styles
+export default styles;

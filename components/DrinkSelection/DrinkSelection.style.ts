@@ -1,13 +1,13 @@
 import { StyleSheet } from "react-native";
 
-const color = "#000000"
-export const activeColor = "rgba(255,255,255,0.83)"
+const color = "#000000";
+export const activeColor = "rgba(255,255,255,0.83)";
 
 const styles = StyleSheet.create({
     elementsToSelect: {
         width: 400,
-        flexDirection: 'row',
-        justifyContent: 'center',
+        flexDirection: "row",
+        justifyContent: "center",
     },
 
     element: {
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderBottomWidth: 3,
         marginBottom: 20,
-        width: 80
+        width: 80,
     },
 
     elementActive: {
@@ -24,15 +24,14 @@ const styles = StyleSheet.create({
 
     text: {
         fontSize: 20,
-        fontWeight: 'bold',
+        fontWeight: "bold",
         color: color,
     },
 
     textActive: {
         color: activeColor,
-        fontWeight: 'bold',
-    }
+        fontWeight: "bold",
+    },
+});
 
-})
-
-export default styles
+export default styles;

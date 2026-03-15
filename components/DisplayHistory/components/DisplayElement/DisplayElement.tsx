@@ -1,11 +1,11 @@
-import {View, Text } from "react-native";
+import { View, Text } from "react-native";
 import styles from "./DisplayElement.style";
 import { CustomImage } from "../CustomImage";
 import { DrinkRecord } from "@/types";
 import dayjs from "dayjs";
 
 interface DisplayElementProps {
-    record: DrinkRecord
+    record: DrinkRecord;
 }
 
 function formatTime(date: Date): string {
@@ -15,12 +15,12 @@ function formatTime(date: Date): string {
 function DisplayElement({ record }: DisplayElementProps) {
     return (
         <View style={styles.element}>
-            <CustomImage type={record.type}/>
+            <CustomImage type={record.type} />
             <Text style={styles.text}>
                 - {record.volume} ml - {formatTime(record.date)}
             </Text>
         </View>
-    )
+    );
 }
 
-export default DisplayElement
+export default DisplayElement;
