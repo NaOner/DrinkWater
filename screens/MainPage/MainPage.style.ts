@@ -1,4 +1,4 @@
-import {StyleSheet} from "react-native";
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     background: {
@@ -7,12 +7,12 @@ const styles = StyleSheet.create({
     },
     logoText: {
         fontSize: 20,
-        fontWeight: 'bold',
-        color: 'white',
+        fontWeight: "bold",
+        color: "white",
     },
     logoSection: {
         width: "100%",
-        height: '30%',
+        height: "30%",
         justifyContent: "center",
         alignItems: "center",
     },
@@ -32,8 +32,23 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "20%",
         justifyContent: "center",
-        alignItems: "center"
-    }
-})
+        alignItems: "center",
+    },
+    centered: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    errorSection: {
+        paddingHorizontal: 20,
+        paddingVertical: 8,
+        alignItems: "center",
+    },
+    errorText: {
+        color: "#ff6b6b",
+        fontSize: 14,
+        textAlign: "center",
+    },
+});
 
-export default styles
+export default styles;

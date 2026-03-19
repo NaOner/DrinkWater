@@ -1,95 +1,75 @@
-// Here I import system components
-import { View, Text } from "react-native";
+import { View, Text, ActivityIndicator } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { LinearGradient } from "expo-linear-gradient";
+import { useState } from "react";
 
-// Here I import my components
 import { Counter } from "@/components/Counter";
 import { Logo } from "@/components/Logo";
 import { Drink } from "@/components/Drink";
-import {useEffect, useState} from "react";
 import { UndoButton } from "@/components/UndoButton";
 import { DrinkSelection } from "@/components/DrinkSelection";
 
 import styles from "./MainPage.style";
+import { DrinkDTO } from "@/types/drink";
+import { DRINKS, DAILY_DRINK_LIMIT } from "@/constants/drink";
+import { useDrinkRecords } from "@/hooks/useDrinkRecords";
 
-// Types for my drinks array
-interface waterParameters {
-    type: string,
-    volume: number,
-    date: Date,
-}
+export default function Index() {
+    const { drinkRecords, isLoading, error, addDrink, undoLastDrink } = useDrinkRecords();
+    const [selectedDrink, setSelectedDrink] = useState<DrinkDTO>(DRINKS[0]);
 
-export default function Index(){
-    const [water, setWater] = useState<waterParameters[]>([])
-
-    const limit = 2500
-
-    // function that load array from AsyncStorage
-    useEffect(()=>{
-        const save = async () => {
-            try {
-                const json = await AsyncStorage.getItem("waterArr")
-                if (json) setWater(JSON.parse(json))
-            } catch (error) {
-                console.log(error)
-            }
-        };
-        void save();
-    }, [])
-
-    // function that save array to AsyncStorage
-    useEffect(()=>{
-        void AsyncStorage.setItem("waterArr", JSON.stringify(water))
-    }, [water])
-
-    // function that add drink to array
-    const handleCreateWater = (type: string, volume: number) => {
-        const drink = {
-            type,
-            volume,
-            date: new Date()
-        }
-        setWater((prev) => {return [drink, ...prev]})
+    if (isLoading) {
+        return (
+            <LinearGradient
+                colors={["#043b6c", "#439be8"]}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 0, y: 1 }}
+                style={styles.background}
+            >
+                <View style={styles.centered}>
+                    <ActivityIndicator size="large" color="white" />
+                </View>
+            </LinearGradient>
+        );
     }
-
-    // function that remove drink from array
-    const handleUndoWater = ()=> {
-        return setWater((prev) => { return prev.slice(1)})
-    }
-
-
-
-    const [selected, setSelected] = useState<string>("Water")
-
 
     return (
-        <LinearGradient colors={['#043b6c', '#439be8']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={styles.background}>
-
+        <LinearGradient
+            colors={["#043b6c", "#439be8"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 0, y: 1 }}
+            style={styles.background}
+        >
             <SafeAreaView>
-
                 <View style={styles.logoSection}>
-                    <Logo/>
-                    <Text style={styles.logoText}>
-                    </Text>
+                    <Logo />
                 </View>
 
+                {error && (
+                    <View style={styles.errorSection}>
+                        <Text style={styles.errorText}>{error}</Text>
+                    </View>
+                )}
+
                 <View style={styles.counterSection}>
-                    <Counter limit={limit} array={water} />
+                    <Counter limit={DAILY_DRINK_LIMIT} records={drinkRecords} />
                 </View>
 
                 <View style={styles.drinkSection}>
-                    <DrinkSelection selected={selected} setSelected={setSelected}/>
-                    <Drink selected={selected} onWaterCreate={handleCreateWater}/>
+                    <DrinkSelection
+                        selectedType={selectedDrink.type}
+                        onTypeSelect={(type) => {
+                            const drink = DRINKS.find((d) => d.type === type);
+                            if (drink) setSelectedDrink(drink);
+                        }}
+                    />
+                    <Drink type={selectedDrink.type} volume={selectedDrink.volume} onWaterCreate={addDrink} />
                 </View>
 
                 <View style={styles.undoButtonSection}>
-                    <UndoButton onPress={handleUndoWater} data={water}/>
+                    <UndoButton onUndo={undoLastDrink} records={drinkRecords} />
                 </View>
-
             </SafeAreaView>
-
         </LinearGradient>
-    )
+    );
 }
